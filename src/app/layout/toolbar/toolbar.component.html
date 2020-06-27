@@ -1,0 +1,23 @@
+<mat-toolbar fxLayoutAlign="space-between center" color="primary">
+
+  <!-- Left content -->
+  <div>
+    <button mat-icon-button>
+      <mat-icon (click)="onSidenavToggle()">menu</mat-icon>
+    </button>
+    <span>The Movies App</span>
+  </div>
+
+  <!-- Right content -->
+  <div fxShow fxHide.xs>
+    <button mat-button>
+      <span>Home</span>
+    </button>
+    <button mat-button>
+      <span>Add Movie</span>
+    </button>
+    <button mat-button>
+      <span>Top 5 Movies</span>
+    </button>
+  </div>
+</mat-toolbar>

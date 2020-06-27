@@ -1,0 +1,21 @@
+%height100 {
+  height: 100%;
+}
+
+:host {
+  @extend %height100;
+}
+
+mat-sidenav-container {
+  @extend %height100;
+}
+
+mat-sidenav-content {
+  @extend %height100;
+}
+
+mat-sidenav {
+  @extend %height100;
+  border: 1px;
+  width: 250px; /* sidenav width */
+}

@@ -1,0 +1,12 @@
+%card-size {
+  height: 250px;
+  width: 250px;
+}
+
+.card {
+  @extend %card-size;
+}
+.add-movie-card {
+  @extend %card-size;
+  border-color: red;
+}

@@ -3,6 +3,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { LocalMoviesService } from '../../../data/local-movies.service';
 import { AddMovieDialogUtils } from '../../../shared/utils/add-movie-dialog-utils';
 import { Movie } from '../../../shared/models/movie';
+import { Observable, of } from 'rxjs';
 
 import { MoviesComponent } from './movies.component';
 
@@ -24,6 +25,9 @@ describe('MoviesComponent', () => {
   class AddMovieDialogUtilsFake {
     openAddMovieDialog() {}
   }
+
+  // Dummies
+  let movies: Observable<Movie[]>;
 
   /*============================================================================
   =                                GLOBAL SET UP                              =
@@ -64,16 +68,31 @@ describe('MoviesComponent', () => {
     it('should listen for movies observable', () => {
 
       // ASSEMBLE
-      localMovieServiceSpy = spyOnProperty(localMovieService, 'movies');
+      movies = of([
+        { title: 'Once upon a time',
+          release: new Date(),
+          description: 'This is a description',
+          image: 'https://someimage.com/image.jpg'
+        },
+        { title: 'Once upon a time',
+          release: new Date(),
+          description: 'This is a description',
+          image: 'https://someimage.com/image.jpg'
+        },
+      ]);
+
+      localMovieServiceSpy = spyOnProperty(localMovieService, 'movies').and
+        .returnValue(movies);
 
       // ACT
       compClass.ngOnInit();
 
       // ASSERT
       expect(localMovieServiceSpy).toHaveBeenCalled();
+      expect(compClass.movies).toEqual(movies);
 
       // Resets
-      localMovieServiceSpy.calls.reset();
+      movies = null;
 
     });
 
@@ -91,6 +110,35 @@ describe('MoviesComponent', () => {
 
       // ASSERT
       expect(movieDialogUtilsSpy).toHaveBeenCalled();
+
+    });
+
+  });
+
+  describe('#deleteMovie()', () => {
+
+    it('should call deleteMovie method from local movie service', () => {
+
+      // ASSEMBLE
+      compClass.movies = movies = of([
+        { title: 'Once upon a time',
+          release: new Date(),
+          description: 'This is a description',
+          image: 'https://someimage.com/image.jpg'
+        },
+        { title: 'Once upon a second time',
+          release: new Date(),
+          description: 'This is a description 2',
+          image: 'https://someimage.com/image-2.jpg'
+        },
+      ]);
+      const deleteMovieServiceSpy = spyOn(localMovieService, 'deleteMovie');
+
+      // ACT
+      compClass.deleteMovie(movies[1]);
+
+      // ASSERT
+      expect(deleteMovieServiceSpy).toHaveBeenCalled();
 
     });
 

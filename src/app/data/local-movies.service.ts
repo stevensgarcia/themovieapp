@@ -27,4 +27,14 @@ export class LocalMoviesService {
     this._MOVIES.next(Object.assign({}, this.dataStore).movies);
   }
 
+  deleteMovie(movie: Movie): void {
+    const movies = this._MOVIES.getValue();
+    movies.forEach((item, index) => {
+      if (item === movie) {
+        movies.splice(index, 1);
+      }
+    });
+    this._MOVIES.next(movies);
+  }
+
 }

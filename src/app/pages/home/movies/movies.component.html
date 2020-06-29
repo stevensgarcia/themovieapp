@@ -28,7 +28,7 @@
     <mat-card-header>
       <mat-card-title>{{ movie.title }}</mat-card-title>
       <mat-card-subtitle>Released: {{ movie.release | date }}</mat-card-subtitle>
-      <button mat-icon-button>
+      <button mat-icon-button (click)="deleteMovie(movie)">
         <mat-icon aria-hidden="false" aria-label="Delete Movie">
           delete
         </mat-icon>

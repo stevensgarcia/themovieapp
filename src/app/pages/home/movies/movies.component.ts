@@ -26,4 +26,8 @@ export class MoviesComponent implements OnInit {
     this.movieDialogUtils.openAddMovieDialog();
   }
 
+  deleteMovie(movie): void {
+    this.localMovieService.deleteMovie(movie);
+  }
+
 }

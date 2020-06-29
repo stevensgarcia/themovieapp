@@ -81,4 +81,40 @@ describe('LocalMoviesService', () => {
 
   });
 
+  describe('#deleteMovie()', () => {
+
+    // Dummie
+    let movie: Movie;
+
+    beforeEach(() => {
+      // ASSEMBLE
+      const date = new Date();
+      movie = {
+        title: 'Once upon a time',
+        release: date,
+        description: 'This is a description',
+        image: 'https://someimage.com/image.jpg'
+      };
+
+      service.addMovie(movie);
+      expect(service[`dataStore`].movies.length).toEqual(1);
+    });
+
+    afterEach(() => {
+      // Resets
+      movie = null;
+    });
+
+    it('should remove an item from the dataStore', () => {
+
+      // ACT
+      const result = service.deleteMovie(movie);
+
+      // ASSERT
+      expect(service[`dataStore`].movies.length).toEqual(0);
+
+    });
+
+  });
+
 });

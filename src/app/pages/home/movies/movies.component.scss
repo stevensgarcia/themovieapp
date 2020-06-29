@@ -18,9 +18,16 @@
   img {
     height: 150px;
   }
+  mat-card-header {
+    button {
+      &:hover {
+        background-color: #c2185b;
+      }
+    }
+  }
+  
   &:hover {
     @extend %mouse-hover;
-    cursor: pointer;
   }
 }
 

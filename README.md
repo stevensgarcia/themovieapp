@@ -22,7 +22,8 @@ The application looks like this for your reference:
 
 Bellow you can see the scaffold of the project.
 
-`src/
+<pre>
+src/
 ├── app/
 │   ├── core/
 │   │   └── core.module.ts
@@ -61,6 +62,7 @@ Bellow you can see the scaffold of the project.
 ├── polyfills.ts
 ├── styles.scss
 └── test.ts`
+</pre>
 
 ## Build
 

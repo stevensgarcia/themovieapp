@@ -4,6 +4,7 @@ import { LocalMoviesService } from '../../../data/local-movies.service';
 import { AddMovieDialogUtils } from '../../../shared/utils/add-movie-dialog-utils';
 import { Movie } from '../../../shared/models/movie';
 import { Observable, of } from 'rxjs';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { MoviesComponent } from './movies.component';
 
@@ -26,6 +27,12 @@ describe('MoviesComponent', () => {
     openAddMovieDialog() {}
   }
 
+  class MatDialogFake {
+    open() {
+      return of(null);
+    }
+  }
+
   // Dummies
   let movies: Observable<Movie[]>;
 
@@ -40,7 +47,8 @@ describe('MoviesComponent', () => {
       ],
       providers: [
         LocalMoviesService,
-        { provide: AddMovieDialogUtils, useClass: AddMovieDialogUtilsFake }
+        { provide: AddMovieDialogUtils, useClass: AddMovieDialogUtilsFake },
+        { provide: MatDialog, useClass: MatDialogFake }
       ]
     })
     .compileComponents();

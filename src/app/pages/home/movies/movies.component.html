@@ -1,5 +1,8 @@
-<section fxLayout="row wrap" 
-  fxLayoutAlign="start space-between" fxLayoutGap="16px">
+<section 
+  fxLayout="row wrap" 
+  fxLayout.xs="column wrap"
+  fxLayoutAlign="start space-between" 
+  fxLayoutGap="16px">
 
   <!-- Add button -->
   <mat-card class="add-movie-card" fxLayout fxLayoutAlign="center center">
@@ -11,7 +14,10 @@
   </mat-card>
 
   <!-- Individual movies -->
-  <app-movie *ngFor="let movie of movies | async" [data]="movie">
+  <app-movie 
+    *ngFor="let movie of movies | async" 
+    [data]="movie"
+    (click)="openMovieDetailsDialog(movie)">
   </app-movie>
 
 </section>

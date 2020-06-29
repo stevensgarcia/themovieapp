@@ -13,6 +13,7 @@ import { LocalMoviesService } from '../../data/local-movies.service';
 import { ExternalMoviesService } from '../../data/external-movies.service';
 import { AddMovieDialogUtils } from '../../shared/utils/add-movie-dialog-utils';
 import { MovieComponent } from './movie/movie.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MovieComponent } from './movie/movie.component';
     SideNavigationComponent,
     AddMovieComponent,
     MovieComponent,
+    MovieDetailsComponent,
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import { MovieComponent } from './movie/movie.component';
     AddMovieDialogUtils,
   ],
   entryComponents: [
-    AddMovieComponent
+    AddMovieComponent,
+    MovieDetailsComponent,
   ],
 })
 export class HomeModule { }

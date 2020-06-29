@@ -1,0 +1,11 @@
+<div fxLayoutAlign fxLayoutAlign="start start" fxLayoutGap="16px">
+  <img src="{{data.image}}" alt="{{data.title}}">
+
+  <mat-dialog-content>
+    <h2 mat-dialog-title>{{ data.title }}</h2>
+
+    <p>Released: {{ data.release | date }}</p>
+    <p>{{ data.description }}</p>
+
+  </mat-dialog-content>
+</div>

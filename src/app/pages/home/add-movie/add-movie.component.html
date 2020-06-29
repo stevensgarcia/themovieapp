@@ -1,0 +1,60 @@
+<h2 mat-dialog-title>Add a new Movie</h2>
+
+<!-- Dialog main content -->
+<mat-dialog-content>
+  <form [formGroup]="form" #f="ngForm" autocomplete="off" fxLayout="column">
+
+    <!-- Title -->
+    <mat-form-field>
+      <input matInput placeholder="Title" formControlName="title" required>
+      <mat-error *ngIf="form.get('title').hasError('required')">
+        Title is required.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Release -->
+    <mat-form-field>
+      <input matInput formControlName="release" required 
+        (click)="picker.open()"
+        [matDatepicker]="picker" placeholder="DD/MM/YYYY">
+
+        <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="form.get('release').hasError('required')">
+        Release is required.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Description -->
+    <mat-form-field>
+      <textarea matInput placeholder="Description" 
+        formControlName="description">
+      </textarea>
+    </mat-form-field>
+
+    <!-- Image -->
+    <mat-form-field>
+      <input matInput placeholder="Image" formControlName="image" required>
+      <mat-error *ngIf="form.get('image').hasError('required')">
+        Image is required.
+      </mat-error>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<!-- Action buttons -->
+<mat-dialog-actions fxLayout fxLayoutAlign="end">
+  <button mat-button 
+    [disabled]="form.invalid"
+    color="primary" (click)="saveMovie()">
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
+  <button mat-button color="primary" (click)="dismissDialog()">
+    <mat-icon>cancel</mat-icon>
+    Cancel
+  </button>
+</mat-dialog-actions>
+

@@ -17,9 +17,11 @@ mat-sidenav-content {
 mat-sidenav {
   @extend %height100;
   border: 1px;
-  width: 250px; /* sidenav width */
+  width: 200px; /* sidenav width */
 }
 
 .wrapper {
-  margin: 50px;
+  margin: 50px auto;
+  max-width: 1440px;
+  padding: 0 50px
 }

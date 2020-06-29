@@ -14,10 +14,12 @@
       <span>Home</span>
     </button>
     <button mat-button>
-      <span>Add Movie</span>
-    </button>
-    <button mat-button>
       <span>Top 5 Movies</span>
     </button>
+    <button mat-raised-button (click)="openAddMovieDialog()">
+      <mat-icon>add</mat-icon>
+      <span>Add Movie</span>
+    </button>
   </div>
+
 </mat-toolbar>

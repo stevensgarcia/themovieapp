@@ -32,7 +32,7 @@ export class MoviesComponent implements OnInit {
   openMovieDetailsDialog(movie: Movie): void {
 
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.maxWidth = '400px';
+    dialogConfig.maxWidth = '600px';
     dialogConfig.data = movie;
 
     // Reference to Modal

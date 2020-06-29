@@ -5,12 +5,14 @@
   fxLayoutGap="16px">
 
   <!-- Add button -->
-  <mat-card class="add-movie-card" fxLayout fxLayoutAlign="center center">
+  <mat-card class="add-movie-card" 
+    fxLayout="column" fxLayoutGap="16px" fxLayoutAlign="center center">
     <button mat-fab color="primary" (click)="openAddMovieDialog()">
       <mat-icon aria-hidden="false" aria-label="Add Movie">
         add
       </mat-icon>
     </button>
+    <p>Add a Movie</p>
   </mat-card>
 
   <!-- Individual movies -->

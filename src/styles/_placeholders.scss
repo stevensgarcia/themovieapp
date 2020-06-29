@@ -1,0 +1,11 @@
+@import './_variables.scss';
+
+%card-size {
+  height: 250px;
+  width: 250px;
+  margin-bottom: 16px;
+}
+
+%mouse-hover {
+  background-color: $hover-secondary;
+}

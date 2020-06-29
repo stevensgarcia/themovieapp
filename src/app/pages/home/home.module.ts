@@ -12,6 +12,7 @@ import { SideNavigationComponent } from '../../layout/side-navigation/side-navig
 import { LocalMoviesService } from '../../data/local-movies.service';
 import { ExternalMoviesService } from '../../data/external-movies.service';
 import { AddMovieDialogUtils } from '../../shared/utils/add-movie-dialog-utils';
+import { MovieComponent } from './movie/movie.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AddMovieDialogUtils } from '../../shared/utils/add-movie-dialog-utils';
     MoviesComponent,
     SideNavigationComponent,
     AddMovieComponent,
+    MovieComponent,
   ],
   imports: [
     CommonModule,

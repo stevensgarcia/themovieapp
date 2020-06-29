@@ -1,35 +1,4 @@
-%card-size {
-  height: 250px;
-  width: 250px;
-  margin-bottom: 16px;
-}
-
-%mouse-hover {
-  background-color: rgba(0,0,0,0.2);
-}
-
-.card {
-  @extend %card-size;
-  max-width: 400px;
-  overflow: hidden;
-  @media screen and (max-width: 632px) {
-    width: 80%;
-  }
-  img {
-    height: 150px;
-  }
-  mat-card-header {
-    button {
-      &:hover {
-        background-color: #c2185b;
-      }
-    }
-  }
-  
-  &:hover {
-    @extend %mouse-hover;
-  }
-}
+@import '../../../../styles/_placeholders.scss';
 
 .add-movie-card {
   @extend %card-size;

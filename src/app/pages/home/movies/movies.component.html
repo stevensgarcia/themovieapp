@@ -1,6 +1,7 @@
 <section fxLayout="row wrap" 
-  fxLayoutAlign="center space-between" fxLayoutGap="16px">
+  fxLayoutAlign="start space-between" fxLayoutGap="16px">
 
+  <!-- Add button -->
   <mat-card class="add-movie-card" fxLayout fxLayoutAlign="center center">
     <button mat-fab color="primary" (click)="openAddMovieDialog()">
       <mat-icon aria-hidden="false" aria-label="Add Movie">
@@ -9,33 +10,9 @@
     </button>
   </mat-card>
 
-  <mat-card *ngFor="let movie of movies | async" class="card">
-
-    <ng-container 
-      *ngIf="movie.image; then hasImage; else noImage">
-    </ng-container>
-    <ng-template #noImage>
-      <img mat-card-image
-      src="https://material.angular.io/assets/img/examples/shiba2.jpg" 
-      alt="{{movie.title}}">
-    </ng-template>
-    <ng-template #hasImage>
-      <img mat-card-image
-      src="{{movie.image}}" 
-      alt="{{movie.title}}">
-    </ng-template>
-
-    <mat-card-header>
-      <mat-card-title>{{ movie.title }}</mat-card-title>
-      <mat-card-subtitle>Released: {{ movie.release | date }}</mat-card-subtitle>
-      <button mat-icon-button (click)="deleteMovie(movie)">
-        <mat-icon aria-hidden="false" aria-label="Delete Movie">
-          delete
-        </mat-icon>
-      </button>
-    </mat-card-header>
-
-  </mat-card>
+  <!-- Individual movies -->
+  <app-movie *ngFor="let movie of movies | async" [data]="movie">
+  </app-movie>
 
 </section>
 

@@ -115,33 +115,4 @@ describe('MoviesComponent', () => {
 
   });
 
-  describe('#deleteMovie()', () => {
-
-    it('should call deleteMovie method from local movie service', () => {
-
-      // ASSEMBLE
-      compClass.movies = movies = of([
-        { title: 'Once upon a time',
-          release: new Date(),
-          description: 'This is a description',
-          image: 'https://someimage.com/image.jpg'
-        },
-        { title: 'Once upon a second time',
-          release: new Date(),
-          description: 'This is a description 2',
-          image: 'https://someimage.com/image-2.jpg'
-        },
-      ]);
-      const deleteMovieServiceSpy = spyOn(localMovieService, 'deleteMovie');
-
-      // ACT
-      compClass.deleteMovie(movies[1]);
-
-      // ASSERT
-      expect(deleteMovieServiceSpy).toHaveBeenCalled();
-
-    });
-
-  });
-
 });

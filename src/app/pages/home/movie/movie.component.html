@@ -1,0 +1,27 @@
+<mat-card class="card">
+
+  <ng-container 
+    *ngIf="data.image; then hasImage; else noImage">
+  </ng-container>
+  <ng-template #noImage>
+    <img mat-card-image
+    src="https://material.angular.io/assets/img/examples/shiba2.jpg" 
+    alt="{{data.title}}">
+  </ng-template>
+  <ng-template #hasImage>
+    <img mat-card-image
+    src="{{data.image}}" 
+    alt="{{data.title}}">
+  </ng-template>
+
+  <mat-card-header>
+    <mat-card-title>{{ data.title }}</mat-card-title>
+    <mat-card-subtitle>Released: {{ data.release | date }}</mat-card-subtitle>
+    <button mat-icon-button (click)="deleteMovie(data)">
+      <mat-icon aria-hidden="false" aria-label="Delete Movie">
+        delete
+      </mat-icon>
+    </button>
+  </mat-card-header>
+
+</mat-card>

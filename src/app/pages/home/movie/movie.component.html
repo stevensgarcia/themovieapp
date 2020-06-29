@@ -17,7 +17,7 @@
   <mat-card-header>
     <mat-card-title>{{ data.title }}</mat-card-title>
     <mat-card-subtitle>Released: {{ data.release | date }}</mat-card-subtitle>
-    <button mat-icon-button (click)="deleteMovie(data)">
+    <button *ngIf="trashcan" mat-icon-button (click)="deleteMovie(data)">
       <mat-icon aria-hidden="false" aria-label="Delete Movie">
         delete
       </mat-icon>

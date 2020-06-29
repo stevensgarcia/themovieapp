@@ -12,6 +12,9 @@ export class MovieComponent implements OnInit {
   @Input()
   data: Movie;
 
+  @Input()
+  trashcan = true;
+
   constructor(
     private localMovieService: LocalMoviesService,
   ) { }

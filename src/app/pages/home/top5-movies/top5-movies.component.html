@@ -1,0 +1,19 @@
+<section 
+  fxLayout="row wrap" 
+  fxLayout.xs="column wrap"
+  fxLayoutAlign="center space-between" 
+  fxLayoutGap="16px">
+
+  <app-loader *ngIf="!movies"></app-loader>
+
+  <!-- Individual movies -->
+  <app-movie 
+    *ngFor="let movie of movies" 
+    [data]="movie"
+    [trashcan]="false"
+    (click)="openMovieDetailsDialog(movie)">
+  </app-movie>
+
+</section>
+
+

@@ -81,7 +81,7 @@ describe('ExternalMoviesService', () => {
 
       // Set request data
       request = {
-        url: 'http://www.mocky.io/v2/5dc3c053300000540034757b',
+        url: 'https://www.mocky.io/v2/5dc3c053300000540034757b',
         method: 'GET'
       };
 

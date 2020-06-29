@@ -9,7 +9,7 @@ import { Movie } from '../shared/models/movie';
 })
 export class ExternalMoviesService {
 
-  private api = 'http://www.mocky.io/v2/5dc3c053300000540034757b';
+  private api = 'https://www.mocky.io/v2/5dc3c053300000540034757b';
 
   constructor(private http: HttpClient) { }
 

@@ -9,24 +9,39 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
+      require('karma-mocha'),
+      require('karma-mocha-reporter'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+      clearContext: false, // leave Jasmine Spec Runner output visible in browser
+      captureConsole: true,
+      mocha: {
+        bail: true
+      }
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, './coverage/the-movies-app'),
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['mocha', 'kjhtml', 'coverage-istanbul'],
+    mochaReporter: {
+      ignoreSkipped: true,
+      showDiff: true
+    },
+    browserConsoleLogOptions: {
+      terminal: true,
+      level: ""
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadless'],
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    browserNoActivityTimeout: 120000
   });
 };

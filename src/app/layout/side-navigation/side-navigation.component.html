@@ -1,0 +1,12 @@
+<mat-list role="list" fxLayout="column">
+  <mat-list-item role="listitem">Home</mat-list-item>
+  <mat-list-item role="listitem">Top 5 Movies</mat-list-item>
+  <mat-list-item role="listitem">
+    <button mat-raised-button 
+      color="primary" 
+      (click)="onSidenavToggle(); openAddMovieDialog()">
+      <mat-icon>add</mat-icon>
+      <span>Add Movie</span>
+    </button>
+  </mat-list-item>
+</mat-list>

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AddMovieDialogUtils } from '../../shared/utils/add-movie-dialog-utils';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ToolbarComponent } from './toolbar.component';
 
@@ -12,6 +13,7 @@ describe('ToolbarComponent', () => {
 
   // Dependencies
   let movieDialogUtils: AddMovieDialogUtils;
+  let router: RouterTestingModule;
 
   // Spies
   let movieDialogUtilsSpy: jasmine.Spy;
@@ -27,6 +29,9 @@ describe('ToolbarComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ToolbarComponent ],
+      imports: [
+        RouterTestingModule.withRoutes([])
+      ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA
       ],
@@ -43,7 +48,8 @@ describe('ToolbarComponent', () => {
     compClass = fixture.componentInstance;
 
     // Dependency injection
-    movieDialogUtils  = TestBed.get(AddMovieDialogUtils);
+    movieDialogUtils = TestBed.get(AddMovieDialogUtils);
+    router           = TestBed.get(RouterTestingModule);
 
   });
 

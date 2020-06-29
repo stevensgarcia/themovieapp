@@ -5,15 +5,15 @@
     <button mat-icon-button fxShow.xs fxHide>
       <mat-icon (click)="onSidenavToggle()">menu</mat-icon>
     </button>
-    <span>The Movies App</span>
+    <span class="brand" routerLink="/movies">The Movies App</span>
   </div>
 
   <!-- Right content -->
   <div fxShow fxHide.xs>
-    <button mat-button>
+    <button mat-button routerLink="/movies" routerLinkActivate="active">
       <span>Home</span>
     </button>
-    <button mat-button>
+    <button mat-button routerLink="/top5movies" routerLinkActivate="active">
       <span>Top 5 Movies</span>
     </button>
     <button mat-raised-button (click)="openAddMovieDialog()">

@@ -9,3 +9,13 @@
 %mouse-hover {
   background-color: $hover-secondary;
 }
+
+%remove-outline {
+  &:active, 
+  &:visited,
+  &:focus,
+  &:focus-within {
+    outline: none;
+    border: none;
+  }
+}

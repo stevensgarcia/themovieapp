@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AddMovieDialogUtils } from '../../shared/utils/add-movie-dialog-utils';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-navigation',
@@ -12,7 +13,8 @@ export class SideNavigationComponent implements OnInit {
   sidenavToggle: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
-    private movieDialogUtils: AddMovieDialogUtils
+    private movieDialogUtils: AddMovieDialogUtils,
+    private router: Router
   ) { }
 
   ngOnInit(): void {

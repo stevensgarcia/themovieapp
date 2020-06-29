@@ -1,0 +1,6 @@
+@import '../../../styles/_placeholders.scss';
+
+mat-list-item {
+  cursor: pointer;
+  @extend %remove-outline;
+}

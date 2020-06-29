@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AddMovieDialogUtils } from '../../shared/utils/add-movie-dialog-utils';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -12,7 +13,8 @@ export class ToolbarComponent implements OnInit {
   sidenavToggle: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
-    private movieDialogUtils: AddMovieDialogUtils
+    private movieDialogUtils: AddMovieDialogUtils,
+    private route: Router
   ) { }
 
   ngOnInit(): void {
